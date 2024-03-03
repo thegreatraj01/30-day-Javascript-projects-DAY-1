@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(52, 52, 52, 0.5)),
+    url("bcimg.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+
+.keys {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50vh;
+  gap: 1vw;
+}
+
+
+@keyframes spin {
+  0% {
+    border-image: linear-gradient(to right, red, blue, green) 1;
+  }
+  100% {
+    border-image: linear-gradient(to right, green, red, blue) 1;
+  }
+}
+
+.key {
+  border-radius: 5px;
+  min-height: 4vw;
+  min-width: 6vw;
+  background-color: rgba(52, 51, 51, 0.514);
+  padding: 5px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  animation: spin 2s infinite linear; /* Apply the spin animation */
+  border: 3px solid transparent; /* Set initial border color to transparent */
+  border-image-slice: 1; /* Ensure full coverage of border */
+}
+
+.playing {
+  transform: translateY(-50px);
+}
+
+.key > kbd {
+  color: white;
+  font-size: 2vw;
+  font-weight: 600;
+}
+
+.key .sound {
+  color: yellow;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 800px) {
+  .keys {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding-top:40vh;
+  }
+  .key > kbd {
+    color: white;
+    font-size: 3.5vw;
+    font-weight: 600;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .keys {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding-top: 40vh;
+  }
+  .key > kbd {
+    color: white;
+    font-size: 3vw;
+    font-weight: 600;
+  }
+}
